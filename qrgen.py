@@ -9,3 +9,12 @@ def generate_qrcode(text):
         border=4,
     )
 
+    qr.add_data(text)
+    qr.make(fit=True)
+    img = qr.make_image(fill_color="black", back_color="white")
+    img.save("qrimg.png")
+
+    url = input("Enter your url: ")
+    generate_qrcode(url)
+
+print("QR code for {url} has been generated and saved as qrimg.png.")
